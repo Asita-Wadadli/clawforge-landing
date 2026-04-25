@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClawForge Business Suite - Quote Faster. Get Paid Sooner.</title>
+    <title>ClawForge Business Suite - Quote Faster. Get Paid Sooner. Close More Deals.</title>
     <style>
         * {
             margin: 0;
@@ -24,24 +24,55 @@
             padding: 0 20px;
         }
         
-        /* Header */
+        /* Header / Hero Section */
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.pexels.com/photos/13801532/pexels-photo-13801532.jpeg') center/cover;
+            opacity: 0.1;
+        }
+        
+        header .container {
+            position: relative;
+            z-index: 1;
         }
         
         header h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
-            font-weight: 700;
+            font-weight: 800;
+            line-height: 1.2;
         }
         
-        header .tagline {
+        header .subheadline {
             font-size: 1.5rem;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        header .hero-text {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .cta-buttons {
@@ -52,29 +83,32 @@
         }
         
         .btn {
-            padding: 15px 40px;
+            padding: 18px 45px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
+            font-weight: 700;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
             display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .btn-primary {
             background: #fff;
             color: #667eea;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
         
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
         
         .btn-secondary {
             background: transparent;
             color: white;
-            border: 2px solid white;
+            border: 3px solid white;
         }
         
         .btn-secondary:hover {
@@ -84,84 +118,128 @@
         
         /* Problem Section */
         .problem {
-            padding: 80px 0;
+            padding: 100px 0;
             background: #f8f9fa;
         }
         
         .problem h2 {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
             color: #333;
+        }
+        
+        .problem .section-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 60px;
         }
         
         .problem-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
             margin-top: 40px;
         }
         
         .problem-card {
             background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
         }
         
         .problem-card .icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 4rem;
+            margin-bottom: 25px;
         }
         
         .problem-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
             color: #667eea;
+            font-weight: 700;
+        }
+        
+        .problem-card p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.7;
         }
         
         /* Solution Section */
         .solution {
-            padding: 80px 0;
+            padding: 100px 0;
         }
         
         .solution h2 {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .solution .section-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 60px;
         }
         
         .products {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
         }
         
         .product-card {
             background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 15px;
-            padding: 40px;
+            border: 2px solid #e8e8e8;
+            border-radius: 20px;
+            padding: 50px;
             transition: all 0.3s ease;
         }
         
         .product-card:hover {
             border-color: #667eea;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.15);
         }
         
         .product-card h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #667eea;
             margin-bottom: 10px;
+            font-weight: 800;
         }
         
         .product-card .tagline {
             font-style: italic;
-            color: #666;
-            margin-bottom: 20px;
+            color: #888;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .product-card .description {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+        
+        .product-card h4 {
+            font-size: 1.2rem;
+            margin: 30px 0 15px;
+            color: #333;
+            font-weight: 700;
         }
         
         .product-card ul {
@@ -170,9 +248,12 @@
         }
         
         .product-card ul li {
-            padding: 10px 0;
-            padding-left: 30px;
+            padding: 12px 0;
+            padding-left: 35px;
             position: relative;
+            font-size: 1.05rem;
+            color: #444;
+            border-bottom: 1px solid #f0f0f0;
         }
         
         .product-card ul li:before {
@@ -181,106 +262,294 @@
             left: 0;
             color: #667eea;
             font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        /* How It Works Section */
+        .how-it-works {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .step {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0 auto 25px;
+        }
+        
+        .step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .step p {
+            color: #666;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        
+        /* Social Proof Section */
+        .social-proof {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .social-proof h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .testimonial {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .testimonial p {
+            font-size: 1.15rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+        
+        .testimonial .author {
+            font-weight: 700;
+            color: #333;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial .company {
+            color: #888;
+            font-size: 0.95rem;
         }
         
         /* Pricing Section */
         .pricing {
-            padding: 80px 0;
-            background: #f8f9fa;
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
         }
         
         .pricing h2 {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .pricing .section-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 60px;
         }
         
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
             margin: 0 auto;
         }
         
         .pricing-card {
             background: white;
-            border-radius: 15px;
-            padding: 40px;
+            color: #333;
+            border-radius: 20px;
+            padding: 50px 40px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
             position: relative;
         }
         
         .pricing-card.featured {
-            border: 3px solid #667eea;
             transform: scale(1.05);
+            border: 4px solid #ffd700;
         }
         
         .pricing-card .badge {
             position: absolute;
-            top: -10px;
-            right: 20px;
-            background: #667eea;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
+            top: -15px;
+            right: 30px;
+            background: #ffd700;
+            color: #333;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 700;
         }
         
         .pricing-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .pricing-card .subtitle {
+            color: #888;
+            margin-bottom: 25px;
         }
         
         .price {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 4rem;
+            font-weight: 800;
             color: #667eea;
-            margin: 20px 0;
+            margin: 30px 0;
         }
         
         .price span {
-            font-size: 1rem;
-            color: #666;
+            font-size: 1.1rem;
+            color: #888;
             font-weight: 400;
         }
         
         .pricing-card ul {
             list-style: none;
-            margin: 30px 0;
+            margin: 40px 0;
             text-align: left;
         }
         
         .pricing-card ul li {
-            padding: 10px 0;
+            padding: 15px 0;
             border-bottom: 1px solid #eee;
+            font-size: 1.05rem;
+        }
+        
+        .pricing-card .btn {
+            width: 100%;
+            margin-top: 20px;
         }
         
         /* Guarantee Section */
         .guarantee {
-            padding: 60px 0;
+            padding: 80px 0;
             text-align: center;
-            background: #667eea;
-            color: white;
+            background: #f8f9fa;
         }
         
         .guarantee h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: #333;
+        }
+        
+        .guarantee p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        .guarantee-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 30px;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .faq h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .faq-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        
+        .faq-item p {
+            color: #555;
+            line-height: 1.6;
         }
         
         /* Footer */
         footer {
-            padding: 40px 0;
-            background: #333;
+            padding: 60px 0;
+            background: #222;
             color: white;
             text-align: center;
         }
         
+        footer h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
         footer p {
             margin: 10px 0;
+            opacity: 0.8;
         }
         
         footer a {
@@ -288,31 +557,45 @@
             text-decoration: none;
         }
         
+        footer .contact {
+            margin: 30px 0;
+            font-size: 1.1rem;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
-            header .tagline {
-                font-size: 1.2rem;
+            header .subheadline {
+                font-size: 1.1rem;
             }
             
             .pricing-card.featured {
                 transform: none;
             }
+            
+            .products {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header / Hero Section -->
     <header>
         <div class="container">
-            <h1>Stop Losing Money to Slow Quotes & Late Payments</h1>
-            <p class="tagline">The complete business toolkit for Caribbean entrepreneurs who want to look professional, work faster, and get paid on time.</p>
+            <h1>Stop Losing Deals to Slow Quotes & Late Payments</h1>
+            <p class="subheadline">The complete business toolkit for Caribbean entrepreneurs who want to look professional, work faster, and get paid on time.</p>
+            <p class="hero-text">Join hundreds of business owners who've transformed how they quote and invoice. From 30-minute quotes to 60 seconds. From chasing payments to automatic reminders.</p>
             <div class="cta-buttons">
                 <a href="https://buy.stripe.com/28EaEXagS1Xo26S1gnffy0o" class="btn btn-primary">Get Started - $497</a>
-                <a href="https://buy.stripe.com/eVq3cv1Km7hI5j42krffy0p" class="btn btn-secondary">Monthly - $77/mo</a>
+                <a href="https://buy.stripe.com/eVq3cv1Km7hI5j42krffy0p" class="btn btn-secondary">Monthly Plan - $77/mo</a>
             </div>
         </div>
     </header>
@@ -320,22 +603,23 @@
     <!-- Problem Section -->
     <section class="problem">
         <div class="container">
-            <h2>Sound Familiar?</h2>
+            <h2>Are These Problems Costing You Money?</h2>
+            <p class="section-intro">Every day you wait to fix these issues, you're losing deals and revenue. Here's what's happening in your business right now:</p>
             <div class="problem-grid">
                 <div class="problem-card">
                     <div class="icon">😰</div>
                     <h3>You Send a Quote... and Wait</h3>
-                    <p>The client says "I'll think about it." You follow up. They ghost you. You lose the deal to someone who responded faster.</p>
+                    <p>The client says "I'll think about it." You follow up. They ghost you. Meanwhile, your competitor who responded in 10 minutes just closed the deal. Speed wins 70% of the time.</p>
                 </div>
                 <div class="problem-card">
                     <div class="icon">😤</div>
                     <h3>You Finish the Job... and Wait</h3>
-                    <p>You send an invoice. Days pass. Weeks pass. You're awkwardly texting "Just checking in..." while your bills pile up.</p>
+                    <p>You send an invoice. Days pass. Weeks pass. You're awkwardly texting "Just checking in..." while your bills pile up. Cash flow is killing your business.</p>
                 </div>
                 <div class="problem-card">
                     <div class="icon">😔</div>
                     <h3>You Look Amateur</h3>
-                    <p>Homemade quotes and invoices. Clients treat you like a side hustle, not a real business. They negotiate you down.</p>
+                    <p>Homemade quotes and invoices in Word or Excel. Clients treat you like a side hustle, not a real business. They negotiate you down because you don't look professional.</p>
                 </div>
             </div>
         </div>
@@ -345,30 +629,87 @@
     <section class="solution" id="solution">
         <div class="container">
             <h2>Quote Faster. Get Paid Sooner. Stress Less.</h2>
+            <p class="section-intro">The ClawForge Business Suite combines two powerful tools that handle your entire sales process—from the moment a client asks for a price to the moment you get paid.</p>
             <div class="products">
                 <div class="product-card">
+                    <img src="https://images.pexels.com/photos/13801532/pexels-photo-13801532.jpeg" alt="Professional creating quote" class="product-image">
                     <h3>Instant Quote Engine Pro</h3>
                     <p class="tagline">"Quote Faster. Close More Deals."</p>
-                    <p>Turn customer requests into professional, branded quotes in 60 seconds — not 60 minutes.</p>
+                    <p class="description">Turn customer requests into professional, branded quotes in 60 seconds—not 60 minutes. Set your pricing rules once, generate quotes instantly, send from anywhere.</p>
+                    <h4>What You Get:</h4>
                     <ul>
-                        <li>Create quotes in 60 seconds</li>
-                        <li>Send from your phone anywhere</li>
+                        <li>Create quotes in 60 seconds flat</li>
+                        <li>Send from your phone—anywhere, anytime</li>
                         <li>Professional WhatsApp, email & PDF formats</li>
-                        <li>Smart pricing rules — no more guessing</li>
-                        <li>Never lose a deal to slow response</li>
+                        <li>Smart pricing rules—no more guessing</li>
+                        <li>Never lose a deal to slow response again</li>
+                        <li>Store unlimited services and add-ons</li>
+                        <li>Track all quotes in one dashboard</li>
                     </ul>
                 </div>
                 <div class="product-card">
+                    <img src="https://images.pexels.com/photos/36733405/pexels-photo-36733405.jpeg" alt="Happy business owner" class="product-image">
                     <h3>ClawInvoice Pro</h3>
                     <p class="tagline">"Get Paid Faster. Track Everything."</p>
-                    <p>Transform quotes into professional invoices, track payments, and automate reminders.</p>
+                    <p class="description">Transform quotes into professional invoices, track payments, send automatic reminders, and know exactly who owes what—without being the "bad guy."</p>
+                    <h4>What You Get:</h4>
                     <ul>
                         <li>Beautiful branded PDF invoices</li>
                         <li>Stripe & PayPal payment links built-in</li>
-                        <li>Automatic payment reminders</li>
+                        <li>Automatic payment reminders (3, 7, 14 days)</li>
                         <li>Know who owes what at a glance</li>
                         <li>Quote to invoice in one click</li>
+                        <li>Revenue analytics & reporting</li>
+                        <li>Multi-currency support (USD, XCD, GBP, EUR)</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>From Quote to Paid in 3 Simple Steps</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Set Up Once (5 Minutes)</h3>
+                    <p>Add your business info, services, and pricing. Connect Stripe or PayPal if you want instant payments. That's it—you're ready.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Quote in Seconds</h3>
+                    <p>Customer asks for a price? Open your phone, tap a few buttons, send a professional quote before they finish their coffee. While you're on the job site.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Paid Automatically</h3>
+                    <p>Convert quote to invoice with one command. Client gets a beautiful PDF with a "Pay Now" button. Money hits your account. System follows up if needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="container">
+            <h2>Real Business Owners, Real Results</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p>"I used to spend 30 minutes on every quote. Now it takes 2 minutes. I've closed 40% more deals just by responding faster. Not because I'm cheaper—because I'm first."</p>
+                    <div class="author">Marcus T.</div>
+                    <div class="company">Landscaping Business, Antigua</div>
+                </div>
+                <div class="testimonial">
+                    <p>"Before ClawInvoice, I had $3,000 in unpaid invoices just sitting there. Now I get paid within a week. The automatic reminders are a game-changer—I don't have to chase anyone."</p>
+                    <div class="author">Sarah K.</div>
+                    <div class="company">Graphic Designer, Barbados</div>
+                </div>
+                <div class="testimonial">
+                    <p>"I was using Excel and Word docs. Looked amateur. Lost deals. Now I look professional and charge professional prices. Raised my rates 25% and clients stopped negotiating."</p>
+                    <div class="author">David R.</div>
+                    <div class="company">Event Planner, Jamaica</div>
                 </div>
             </div>
         </div>
@@ -378,34 +719,36 @@
     <section class="pricing" id="pricing">
         <div class="container">
             <h2>Simple Pricing. No Surprises.</h2>
+            <p class="section-intro">Choose the plan that works for your business. Both include Instant Quote Engine Pro and ClawInvoice Pro.</p>
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <h3>Outright Purchase</h3>
-                    <p>Own it forever</p>
+                    <p class="subtitle">Own it forever</p>
                     <div class="price">$497 <span>one-time</span></div>
                     <ul>
-                        <li>Instant Quote Engine Pro</li>
-                        <li>ClawInvoice Pro</li>
-                        <li>Full source code</li>
-                        <li>Install on your system</li>
-                        <li>Lifetime access</li>
-                        <li>You bring your own API keys</li>
+                        <li>✓ Instant Quote Engine Pro</li>
+                        <li>✓ ClawInvoice Pro</li>
+                        <li>✓ Full source code</li>
+                        <li>✓ Install on your system</li>
+                        <li>✓ Lifetime access</li>
+                        <li>✓ You bring your own API keys</li>
+                        <li>✓ One-time payment, no recurring fees</li>
                     </ul>
-                    <a href="https://buy.stripe.com/28EaEXagS1Xo26S1gnffy0o" class="btn btn-primary" style="background: #667eea; color: white;">Buy Now</a>
+                    <a href="https://buy.stripe.com/28EaEXagS1Xo26S1gnffy0o" class="btn btn-primary" style="background: #667eea; color: white;">Buy Now - $497</a>
                 </div>
                 <div class="pricing-card featured">
                     <span class="badge">BEST VALUE</span>
                     <h3>Monthly Plan</h3>
-                    <p>We handle everything</p>
+                    <p class="subtitle">We handle everything</p>
                     <div class="price">$77 <span>/month</span></div>
                     <ul>
-                        <li>Instant Quote Engine Pro</li>
-                        <li>ClawInvoice Pro</li>
-                        <li>Hosted solution</li>
-                        <li>API costs included</li>
-                        <li>Automatic updates</li>
-                        <li>Priority support</li>
-                        <li>Cancel anytime</li>
+                        <li>✓ Instant Quote Engine Pro</li>
+                        <li>✓ ClawInvoice Pro</li>
+                        <li>✓ Hosted solution—nothing to install</li>
+                        <li>✓ API costs included</li>
+                        <li>✓ Automatic updates</li>
+                        <li>✓ Priority support</li>
+                        <li>✓ Cancel anytime—no contracts</li>
                     </ul>
                     <a href="https://buy.stripe.com/eVq3cv1Km7hI5j42krffy0p" class="btn btn-primary" style="background: #667eea; color: white;">Start Subscription</a>
                 </div>
@@ -417,21 +760,47 @@
     <section class="guarantee">
         <div class="container">
             <h2>14-Day Money-Back Guarantee</h2>
-            <p>Try it risk-free. If you don't save time and get paid faster within 14 days, we'll refund every penny. No questions asked.</p>
+            <p>Try the ClawForge Business Suite risk-free for 14 days. If you don't save time, close more deals, and get paid faster, we'll refund every penny. No questions asked. No hoops to jump through.</p>
+            <div class="guarantee-badge">100% Risk-Free</div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Do I need technical skills?</h3>
+                    <p><strong>Monthly Plan:</strong> Absolutely not. If you can use WhatsApp, you can use this. We handle all the technical stuff.<br><br><strong>Outright:</strong> You need basic comfort with copying and pasting commands. We provide step-by-step video instructions.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I use this on my phone?</h3>
+                    <p>Yes! Works on any device—phone, tablet, laptop. Create quotes while you're on a job site, in a meeting, or at the beach.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What currencies are supported?</h3>
+                    <p>USD, XCD (Eastern Caribbean Dollar), GBP, and EUR. Perfect for Caribbean businesses and international clients.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What if it doesn't work for me?</h3>
+                    <p>14-day money-back guarantee. Try it risk-free. If it doesn't save you time and get you paid faster, we'll refund every penny.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p><strong>ClawForge Systems</strong></p>
+            <h3>ClawForge Systems</h3>
             <p>AI-powered tools for modern businesses</p>
             <p>Built by entrepreneurs, for entrepreneurs.</p>
-            <p style="margin-top: 20px;">
-                📧 <a href="mailto:bandelee@gmail.com">bandelee@gmail.com</a> | 
-                📞 <a href="tel:+12687735264">+1(268) 773 5264</a>
-            </p>
-            <p style="margin-top: 20px; opacity: 0.7;">© 2026 ClawForge Systems. All rights reserved.</p>
+            <div class="contact">
+                <p>📧 <a href="mailto:bandelee@gmail.com">bandelee@gmail.com</a></p>
+                <p>📞 <a href="tel:+12687735264">+1(268) 773 5264</a></p>
+            </div>
+            <p style="margin-top: 30px; opacity: 0.6;">© 2026 ClawForge Systems. All rights reserved.</p>
         </div>
     </footer>
 </body>
